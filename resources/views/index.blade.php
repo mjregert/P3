@@ -31,7 +31,7 @@ such as a page specific stylesheets.
     <section>
         <h2>Random Password Generator</h2>
         <p>Create a random password for your applications. Like Lorem Ipsum, but for passwords.</p>
-        <a href="/passwords">Generate a password...</a>
+        <a href="/passwords/create">Generate a password...</a>
     </section>
 @stop
 

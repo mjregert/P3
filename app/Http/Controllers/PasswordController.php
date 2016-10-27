@@ -13,7 +13,7 @@ class PasswordController extends Controller
      */
     public function index()
     {
-        return view('password.index');
+        //
     }
 
     /**
@@ -22,6 +22,17 @@ class PasswordController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
+    {
+        return view('password.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
         # Validate the user data
 
@@ -69,21 +80,8 @@ class PasswordController extends Controller
             $output .= $symbolList[array_rand($symbolList, 1)];
         } #end if
 
-
         /* Return a view and pass back output here, also remember old */
-        return view('password.show')->with('output', $output);
-//        return 'Password is '.$output;
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('password.create')->with('output', $output);
     }
 
     /**

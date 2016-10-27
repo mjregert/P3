@@ -4,7 +4,7 @@
     <section>
         <h2>Random Password Generator</h2>
         <p>Create a random password for your applications. Like Lorem Ipsum, but for passwords.</p>
-        <form method='GET' action='passwords/create'>
+        <form method='POST' action='/passwords/create'>
             <fieldset>
                 <legend>Password Generator Options:</legend>
                 <span>
@@ -32,6 +32,7 @@
                     />
                     <label>Include a Symbol</label>
                 </span>
+                <span>{{ csrf_field() }}</span>
                 <br>
                 <br>
                 <span>
@@ -40,5 +41,9 @@
                 </span>
           </fieldset>
         </form>
+    </section>
+    <section>
+        <h2>Results Below</h2>
+        <p>{{ $output or 'Oh fudge' }}</p>
     </section>
 @stop
