@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return 'Returning all users';
     }
 
     /**
@@ -23,7 +23,13 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $view = '<form method="POST" action="/users/create">';
+        $view .= csrf_field();
+        $view .= '<input type="text" name="name">';
+        $view .= '<input type="submit">';
+        $view .= '</form>';
+
+        return $view;
     }
 
     /**
