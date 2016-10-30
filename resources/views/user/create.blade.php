@@ -2,8 +2,8 @@
 
 @section('content')
     <section>
-        <h2>Random Password Generator</h2>
-        <p>Create a random password for your applications. Like Lorem Ipsum, but for passwords.</p>
+        <h2>Random User Generator</h2>
+        <p>Create random user data for your applications. Like Lorem Ipsum, but for people.</p>
 
 
         @if(count($errors) > 0)
@@ -16,9 +16,9 @@
 
 
 
-        <form method='POST' action='/passwords/create'>
+        <form method='POST' action='/users/create'>
             <fieldset>
-                <legend>Password Generator Options:</legend>
+                <legend>User Generator Options:</legend>
                 <span>
                     <label>Number of Words:</label>
                     <input type="number"
