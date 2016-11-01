@@ -7,11 +7,11 @@ Use it to add specific things that *this* View needs in the head,
 such as a page specific stylesheets.
 --}}
 @section('head')
-<a href="/">&lt;--Return Home</a>
-<br>
-
 @stop
 
+<section>
+    <a href="/">&lt;--Return Home</a>
+</section>
 @section('content')
 @stop
 
