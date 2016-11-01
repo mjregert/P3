@@ -41,7 +41,7 @@ class UserController extends Controller
         $firstnameKeys = array_rand($firstnameList, $numberUsers);
         $lastnameKeys = array_rand($lastnameList, $numberUsers);
 
-        $initialcon = new \Initialcon();
+//        $initialcon = new \Initialcon();
 
         $output = '';
 
@@ -51,9 +51,10 @@ class UserController extends Controller
             $lastname = trim($lastnameList[$lastnameKeys[$i]]);
             $email = strtolower($firstname).'.'.strtolower($lastname).'@yourdomain.com';
             $initials = $firstname[0].$lastname[0];
-            $imageDataUri = $initialcon->getImageDataUri($initials, $email);
+//            $imageDataUri = $initialcon->getImageDataUri($initials, $email);
             $profile = \Lipsum::medium()->text(1);
-            $output .= '<p> <img src="'.$imageDataUri.'" style="float:left;margin-right:2em;"><b>Name:</b> '.$firstname.' '.$lastname.'<br><b>Email Address:</b> '.$email.'<br><b>Profile:</b> '.$profile.'</p><br><br>';
+//            $output .= '<p> <img src="'.$imageDataUri.'" style="float:left;margin-right:2em;"><b>Name:</b> '.$firstname.' '.$lastname.'<br><b>Email Address:</b> '.$email.'<br><b>Profile:</b> '.$profile.'</p><br><br>';
+            $output .= '<p><b>Name:</b> '.$firstname.' '.$lastname.'<br><b>Email Address:</b> '.$email.'<br><b>Profile:</b> '.$profile.'</p><br><br>';
 
         }
 
