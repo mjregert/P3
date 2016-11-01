@@ -28,10 +28,12 @@ class UserController extends Controller
     {
         # Validate the request data
         $this->validate($request, [
-            'userCount' => 'required|numeric|min:1|max:9',
+            'userCount' => 'required|numeric|min:2|max:9',
         ]);
 
         $numberUsers = $request->userCount;
+        $includeEmailAddress = isset($request->includeEmailAddress) && $request->includeEmailAddress == "on";
+        $includeProfile = isset($request->includeProfile) && $request->includeProfile == "on";
 
         # Read the names list from an external file into an array
         $firstnameList = file("firstnames.txt");
@@ -41,7 +43,7 @@ class UserController extends Controller
         $firstnameKeys = array_rand($firstnameList, $numberUsers);
         $lastnameKeys = array_rand($lastnameList, $numberUsers);
 
-//        $initialcon = new \Initialcon();
+        $initialcon = new \Initialcon();
 
         $output = '';
 
@@ -49,13 +51,19 @@ class UserController extends Controller
             # Get the name at key
             $firstname = trim($firstnameList[$firstnameKeys[$i]]);
             $lastname = trim($lastnameList[$lastnameKeys[$i]]);
-            $email = strtolower($firstname).'.'.strtolower($lastname).'@yourdomain.com';
             $initials = $firstname[0].$lastname[0];
-//            $imageDataUri = $initialcon->getImageDataUri($initials, $email);
-            $profile = \Lipsum::medium()->text(1);
-//            $output .= '<p> <img src="'.$imageDataUri.'" style="float:left;margin-right:2em;"><b>Name:</b> '.$firstname.' '.$lastname.'<br><b>Email Address:</b> '.$email.'<br><b>Profile:</b> '.$profile.'</p><br><br>';
-            $output .= '<p><b>Name:</b> '.$firstname.' '.$lastname.'<br><b>Email Address:</b> '.$email.'<br><b>Profile:</b> '.$profile.'</p><br><br>';
+            $imageDataUri = $initialcon->getImageDataUri($initials, '');
 
+            $output .= '<p><img src="'.$imageDataUri.'" style="float:left;margin-right:2em;"><b>Name:</b> '.$firstname.' '.$lastname.'<br>';
+            if ($includeEmailAddress) {
+                $email = strtolower($firstname).'.'.strtolower($lastname).'@yourdomain.com';
+                $output .= '<b>Email Address:</b> '.$email.'<br>';
+            }
+            if ($includeProfile) {
+                $profile = \Lipsum::medium()->text(1);
+                $output .= '<b>Profile:</b> '.$profile.'</p><br>';
+            }
+            $output .= '</p><br style="clear:both">';
         }
 
 
