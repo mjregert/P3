@@ -20,33 +20,33 @@
             <fieldset>
                 <legend>User Generator Options:</legend>
                 <span>
-                    <label>Number of Words:</label>
+                    <label>Number of Users:</label>
                     <input type="number"
-                           name="wordCount"
-                           value="4"
+                           name="userCount"
+                           value="1"
                     />
                 </span>
                 <br>
                 <span>
                     <!-- Note, label intentionally placed after checkbox per standard UXD guidelines -->
                     <input type="checkbox"
-                           name="includeNumber"
+                           name="includeEmailAddress"
                     />
-                    <label>Include a Number</label>
+                    <label>Include Email Address</label>
                 </span>
                 <br>
                 <span>
                     <!-- Note, label intentionally placed after checkbox per standard UXD guidelines -->
                     <input type="checkbox"
-                           name="includeSymbol"
+                           name="includeProfile"
                     />
-                    <label>Include a Symbol</label>
+                    <label>Include Profile</label>
                 </span>
+                <br>
                 <span>{{ csrf_field() }}</span>
                 <br>
-                <br>
                 <span>
-                    <label><em>Click submit to generate a random password with the parameters above.</em></label>
+                    <label><em>Click submit to generate a random users with the parameters above.</em></label>
                     <input type="submit" value="Submit">
                 </span>
           </fieldset>
@@ -54,6 +54,6 @@
     </section>
     <section>
         <h2>Results Below</h2>
-        <p>{{ $output or 'Oh fudge' }}</p>
+        {!! $output or '' !!}
     </section>
 @stop

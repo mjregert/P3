@@ -54,6 +54,6 @@
     </section>
     <section>
         <h2>Results Below</h2>
-        <p>{{ $output or 'Oh fudge' }}</p>
+        <p>{!! $output or '' !!}</p>
     </section>
 @stop

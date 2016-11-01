@@ -228,6 +228,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Lipsum' => Magyarjeti\LaravelLipsum\LipsumFacade::class,
+        'Initialcon' => RunMyBusiness\Initialcon\Initialcon::class,
     ],
 
 ];
