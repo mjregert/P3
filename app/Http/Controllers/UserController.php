@@ -28,7 +28,7 @@ class UserController extends Controller
     {
         # Validate the request data
         $this->validate($request, [
-            'userCount' => 'required|numeric|min:2|max:9',
+            'userCount' => 'required|numeric|min:1|max:9',
         ]);
 
         $numberUsers = $request->userCount;
@@ -40,10 +40,16 @@ class UserController extends Controller
         $lastnameList = file("lastnames.txt");
 
         # Although the array was already shuffled when read in, use array_rand to get random names
-        $firstnameKeys = array_rand($firstnameList, $numberUsers);
-        $lastnameKeys = array_rand($lastnameList, $numberUsers);
+        if ($numberUsers == 1) {
+            $firstnameKeys = array(array_rand($firstnameList, $numberUsers));
+            $lastnameKeys = array(array_rand($lastnameList, $numberUsers));
+        } else {
+            $firstnameKeys = array_rand($firstnameList, $numberUsers);
+            $lastnameKeys = array_rand($lastnameList, $numberUsers);
+        }
 
-        $initialcon = new \Initialcon();
+
+        //DOES NOT WORK ON DO - $initialcon = new \Initialcon();
 
         $output = '';
 
@@ -52,9 +58,11 @@ class UserController extends Controller
             $firstname = trim($firstnameList[$firstnameKeys[$i]]);
             $lastname = trim($lastnameList[$lastnameKeys[$i]]);
             $initials = $firstname[0].$lastname[0];
-            $imageDataUri = $initialcon->getImageDataUri($initials, '');
+            //DOES NOT WORK ON DO - $imageDataUri = $initialcon->getImageDataUri($initials, '');
 
-            $output .= '<p><img src="'.$imageDataUri.'" style="float:left;margin-right:2em;"><b>Name:</b> '.$firstname.' '.$lastname.'<br>';
+            //DOES NOT WORK ON DO - $output .= '<p><img src="'.$imageDataUri.'" style="float:left;margin-right:2em;"><b>Name:</b> '.$firstname.' '.$lastname.'<br>';
+            $output .= '<p><b>Name:</b> '.$firstname.' '.$lastname.'<br>';
+
             if ($includeEmailAddress) {
                 $email = strtolower($firstname).'.'.strtolower($lastname).'@yourdomain.com';
                 $output .= '<b>Email Address:</b> '.$email.'<br>';

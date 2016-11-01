@@ -20,7 +20,7 @@
             <fieldset>
                 <legend>User Generator Options:</legend>
                 <span>
-                    <label>Number of Users (min 2, max 9):</label>
+                    <label>Number of Users (min 1, max 9):</label>
                     <input type="number"
                            name="userCount"
                            value="3"
