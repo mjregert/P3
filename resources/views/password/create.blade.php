@@ -58,5 +58,5 @@
     </section>
 
     @include('layouts.subpage')
-
+</section>
 @stop
