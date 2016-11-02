@@ -20,7 +20,7 @@
             <fieldset>
                 <legend>Password Generator Options:</legend>
                 <span>
-                    <label>Number of Words:</label>
+                    <label>Number of Words (min 1, max 9):</label>
                     <input type="number"
                            name="wordCount"
                            value="4"

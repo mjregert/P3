@@ -47,7 +47,7 @@
                     <br>
                 </span>
                 <span>
-                    <label>Number of Paragraphs:</label>
+                    <label>Number of Paragraphs (min 1, max 9):</label>
                     <input type="number"
                            name="paragraphCount"
                            value="4"

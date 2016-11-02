@@ -27,7 +27,7 @@ class LoremController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'paragraphCount' => 'required|numeric|min:1',
+            'paragraphCount' => 'required|numeric|min:1|max:9',
             'paragraphLength' => 'required',
         ]);
 
