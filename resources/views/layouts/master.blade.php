@@ -19,7 +19,6 @@
         <h1>Developer's Best Friend</h1>
     </header>
 
-    <section>
         {{-- Main page content will be yielded here --}}
         @yield('content')
     </section>

@@ -1,4 +1,4 @@
-@extends('layouts.subpage')
+@extends('layouts.master')
 
 @section('content')
     <section>
@@ -67,4 +67,7 @@
         <h2>Results Below</h2>
         {!! $output or '' !!}
     </section>
+
+    @include('layouts.subpage')
+
 @stop

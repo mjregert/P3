@@ -1,6 +1,7 @@
-@extends('layouts.subpage')
+@extends('layouts.master')
 
 @section('content')
+
     <section>
         <h2>Random User Generator</h2>
         <p>Create random user data for your applications. Like Lorem Ipsum, but for people.</p>
@@ -56,4 +57,7 @@
         <h2>Results Below</h2>
         {!! $output or '' !!}
     </section>
+
+    @include('layouts.subpage')
+
 @stop
